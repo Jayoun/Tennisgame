@@ -20,7 +20,7 @@ public class TennisGame1 implements TennisGame {
         {
             return LiteralScoreWithSame.getInstance(player1_score,player2_score).getLiteralScore();
         }
-        if (isAfterDeuce())
+        else if (isAfterDeuce())
         {
             return LiteralScoreAfterDeuce.getInstance(player1_score,player2_score).getLiteralScore();
         }
