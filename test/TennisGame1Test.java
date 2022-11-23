@@ -9,16 +9,13 @@ public class TennisGame1Test extends TestCase {
 
     TennisGame1 game;
 
-
     @Before
     public void setUp() {
         game = new TennisGame1();
     }
 
-
-
-    public void testWonPoint() {
-        game.wonPoint("player1");
+    public void testWonPoint(String player, String score) {
+     game.wonPoint("player1");
         assertEquals("Fifteen-Love", game.getLiteralScore());
         game.wonPoint("player1");
         assertEquals("Thirty-Love", game.getLiteralScore());
@@ -180,7 +177,7 @@ public class TennisGame1Test extends TestCase {
         game.wonPoint("player1");
         game.wonPoint("player1");
         game.wonPoint("player1");
-        //game.getLiteralScore();
-        assertEquals(false,  game.isEnd());
+        System.out.println(game.getLiteralScore());
+        assertEquals(true,  game.isEnd());
     }
 }
