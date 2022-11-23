@@ -7,6 +7,7 @@ public class LiteralScoreWithSame extends LiteralScore{
     public static LiteralScore getInstance(int player1_score, int player2_score) {
         if(literalScore == null)
             literalScore = new LiteralScoreWithSame(player1_score,player2_score );
+
         literalScore.setPlayersScore(player1_score,player2_score );
         return literalScore;
     }

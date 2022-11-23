@@ -3,8 +3,7 @@ public class TennisGame1 implements TennisGame {
     
     protected int player1_score = 0;
     protected int player2_score = 0;
-    private boolean isEnd = false;
-    
+
     public TennisGame1() {
 
     }
@@ -17,7 +16,6 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getLiteralScore() {
-        LiteralScore literalScore = null;
         if (isSameScore())
         {
             return LiteralScoreWithSame.getInstance(player1_score,player2_score).getLiteralScore();
@@ -42,10 +40,7 @@ public class TennisGame1 implements TennisGame {
 
     public boolean isEnd() {
         int score_diff = player1_score - player2_score;
-        isEnd = (isAfterDeuce() && Math.abs(score_diff) >= 2) ||
+        return (isAfterDeuce() && Math.abs(score_diff) >= 2) ||
                 !isAfterDeuce() && Math.abs(score_diff) >= 4;
-
-        return isEnd;
     }
-
 }
