@@ -3,6 +3,7 @@ public class LiteralScoreDefault extends LiteralScore{
 
     private LiteralScoreDefault(int player1_score, int player2_score) {
         super(player1_score, player2_score);
+        literalScore = this;
     }
 
     public static LiteralScore getInstance(int player1_score, int player2_score) {

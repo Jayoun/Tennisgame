@@ -2,6 +2,7 @@ public class LiteralScoreWithSame extends LiteralScore{
     private static LiteralScore literalScore;
     private LiteralScoreWithSame(int player1_score, int player2_score) {
         super(player1_score, player2_score);
+        literalScore = this;
     }
 
     public static LiteralScore getInstance(int player1_score, int player2_score) {
