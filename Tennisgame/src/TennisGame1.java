@@ -1,8 +1,8 @@
 
 public class TennisGame1 implements TennisGame {
     
-    private int player1_score = 0;
-    private int player2_score = 0;
+    protected int player1_score = 0;
+    protected int player2_score = 0;
     private boolean isEnd = false;
     
     public TennisGame1() {
@@ -17,17 +17,18 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getLiteralScore() {
+        LiteralScore literalScore = null;
         if (isSameScore())
         {
-            return getLiteralScoreWithSame();
+            return LiteralScoreWithSame.getInstance(player1_score,player2_score).getLiteralScore();
         }
         if (isAfterDeuce())
         {
-            return getLiteralScoreAfterDeuce();
+            return LiteralScoreAfterDeuce.getInstance(player1_score,player2_score).getLiteralScore();
         }
         else
         {
-            return getDefaultLiteralScore();
+            return LiteralScoreDefault.getInstance(player1_score,player2_score).getLiteralScore();
         }
     }
 
@@ -37,48 +38,6 @@ public class TennisGame1 implements TennisGame {
 
     private boolean isSameScore() {
         return player1_score == player2_score;
-    }
-
-    private String getDefaultLiteralScore() {
-        return getDefaultLiteralScoreForEach(player1_score)+"-"+ getDefaultLiteralScoreForEach(player2_score);
-    }
-
-    private String getDefaultLiteralScoreForEach(int score) {
-        switch(score)
-        {
-            case 0:
-                return "Love";
-            case 1:
-                return "Fifteen";
-            case 2:
-                return "Thirty";
-            default:
-                return "Forty";
-        }
-    }
-
-    private String getLiteralScoreWithSame() {
-        switch (player1_score)
-        {
-            case 0:
-                return  "Love-All";
-            case 1:
-                return  "Fifteen-All";
-            case 2:
-                return  "Thirty-All";
-            default:
-                return  "Deuce";
-        }
-    }
-
-    private String getLiteralScoreAfterDeuce() {
-        int minusResult = player1_score - player2_score;
-
-        if (minusResult==1) return "Advantage player1";
-        else if (minusResult ==-1) return "Advantage player2";
-        else if (minusResult>=2) return "Win for player1";
-        else if (minusResult<=-2) return "Win for player2";
-        else return "Deuce";
     }
 
     public boolean isEnd() {
