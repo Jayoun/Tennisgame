@@ -21,11 +21,11 @@ public class LiteralScoreWithSame extends LiteralScore{
     public String getLiteralScore() {
         switch (player1_score)
         {
-            case 0:
-                return  LOVE_ALL;
-            case 1:
-                return  FIFTEEN_ALL;
-            case 2:
+            case SCORE_LOVE:
+                return LOVE_ALL;
+            case SCORE_FIFTEEN:
+                return FIFTEEN_ALL;
+            case SCORE_THIRTY:
                 return THIRTY_ALL;
             default:
                 return DEUCE;

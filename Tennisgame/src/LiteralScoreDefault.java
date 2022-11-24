@@ -26,11 +26,11 @@ public class LiteralScoreDefault extends LiteralScore{
     private String getDefaultLiteralScoreForEach(int score) {
         switch(score)
         {
-            case 0:
+            case SCORE_LOVE:
                 return LOVE;
-            case 1:
+            case SCORE_FIFTEEN:
                 return FIFTEEN;
-            case 2:
+            case SCORE_THIRTY:
                 return THIRTY;
             default:
                 return FORTY;
