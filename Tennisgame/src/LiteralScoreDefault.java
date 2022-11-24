@@ -1,14 +1,18 @@
 public class LiteralScoreDefault extends LiteralScore{
+    public static final String LOVE = "Love";
+    public static final String FIFTEEN = "Fifteen";
+    public static final String THIRTY = "Thirty";
+    public static final String FORTY = "Forty";
     private static LiteralScore literalScore;
 
-    private LiteralScoreDefault(int player1_score, int player2_score) {
-        super(player1_score, player2_score);
+    private LiteralScoreDefault() {
+        super();
         literalScore = this;
     }
 
     public static LiteralScore getInstance(int player1_score, int player2_score) {
         if(literalScore == null)
-            literalScore = new LiteralScoreDefault(player1_score,player2_score );
+            literalScore = new LiteralScoreDefault();
 
         literalScore.setPlayersScore(player1_score,player2_score );
         return literalScore;
@@ -23,13 +27,13 @@ public class LiteralScoreDefault extends LiteralScore{
         switch(score)
         {
             case 0:
-                return "Love";
+                return LOVE;
             case 1:
-                return "Fifteen";
+                return FIFTEEN;
             case 2:
-                return "Thirty";
+                return THIRTY;
             default:
-                return "Forty";
+                return FORTY;
         }
     }
 }
